@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tefa Pengelolaan Produk Kopi POLIJE</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- BOOTSTRAP 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* utama */
+    * {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: white;
+      line-height: 1.6;
+      
+    }
+
+    /* ===== HEADER ===== */
+     .header {
+      display: flex;
+      align-items: center;
+      background-color: #31473A;
+      box-shadow: 0 4px 6px rgba(49,71,58,0.3);
+      width: 100%;
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000; 
+    }
+
+    .hamburger {
+    margin-right: 11px;
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.dropdown-mobile {
+    position: relative; }
+
+.dropdown-mobile .dropdown-list {
+    display: none;     
+    position: absolute;
+    top: 100%;     
+    left: 0;
+    list-style: none;
+    background-color: #31473A;     
+    padding: 10px 14px;
+    min-width: 180px;
+    border-radius: 7px;
+    z-index: 990; 
+  }
+
+    .header-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      height: 40px;
+      margin-right: 10px;
+      transition: transform 0.3s ease;
+    }
+    .logo:hover {
+      transform: scale(1.1) rotate(-3deg);
+    }
+
+    #namatefa {
+      font-size: 14px;
+      line-height: 1.2;
+      color: white;
+      transition: color 0.3s;
+    }
+
+    nav {
+      margin-left: auto;
+    }
+
+    nav a {
+      color: #ffffff;
+      font-size: 13px;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav a:hover {
+      color: #a3b18a;
+      transform: translateY(-3px);
+    }
+
+    .overlay{
+  max-width: 2200px;
+  margin: 0 auto;
+  padding: 20px;
+
+  background-image: url(foto/baground_mitra4.jpg);
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+}
+  
+    .utama h1{
+      padding-top: 20px;
+      padding-bottom: 30px;
+      padding-left: 40px;
+      padding-right: 970px;
+      font-size: 30px;
+      
+    }
+
+  .p1{
+    padding: 10px 90px 50px 40px ;
+  }
+
+  .artikel{
+    padding-top: 10px;
+    text-align: center;
+      
+      background-color: #7f4c3470;
+      margin-top: 20px;
+      text-align: justify;
+  }
+
+  .utama{
+    padding: 0;
+  }
+    .utama h2{
+      text-align: center;
+      padding: 10px;
+      background-color: #7f4c348f;
+    }
+    .p2{
+      padding: 10px;
+      text-indent: 30px;
+    }
+    
+.container {
+  display: flex;           /* Membuat elemen anak berbaris horizontal */
+  align-items: center;     /* Rata tengah secara vertikal */
+  gap: 20px;               /* Jarak antar elemen */
+}
+
+.text {
+  background-color: #7f4c34;
+  margin-bottom: 50px;
+  max-width: 500px;
+  margin-right: 50px;
+  margin-left: 100px;
+  text-align: justify;
+  text-indent: 40px;
+  padding: 50px;
+  border-radius: 20px;
+  color: white;
+  flex: 1;                 /* Mengisi ruang yang tersedia */
+}
+
+.keterampilan {
+background-color: #7f4c34;
+padding: 20px;
+text-align: justify;
+border-radius: 20px;
+margin-bottom: 70px;
+padding-left: 40px;
+color: #ffffff;
+flex: 1;
+}
+
+.isi p {
+  text-indent: 40px;
+}
+
+.image {
+  height: 600px;
+  margin-right: 50px;
+  margin-left: 20px;
+  margin-top: 50px;
+  max-width: 500px;
+  border-radius: 10px;
+  flex-shrink: 0;          /* Jangan mengecil saat container kecil */
+}
+
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: #f5f5f5;
+      padding: 40px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-top: 1px solid #ddd;
+      position: relative;
+    }
+
+    .footer-map iframe {
+      width: 100%;
+      max-width: 250px;
+      height: 150px;
+      border: 0;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .footer-map iframe:hover {
+      transform: scale(1.02);
+    }
+
+    .footer-contact {
+      flex-grow: 1;
+      max-width: 350px;
+      font-size: 14px;
+      color: #1e3d22;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 60px;
+      font-size: 14px;
+      color: #1e3d22;
+      max-width: 500px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-nav div strong {
+      margin-bottom: 8px;
+    }
+
+    .footer-nav div a {
+      text-decoration: none;
+      color: #1e3d22;
+      margin-bottom: 4px;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .footer-nav div a:hover {
+      color: #007bff;
+      transform: translateX(3px);
+    }
+
+    .footer-logo {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: rgba(197, 197, 197, 0.1);
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      flex-wrap: wrap;
+      transition: transform 0.3s;
+    }
+    .footer-logo:hover {
+      transform: scale(1.03);
+    }
+
+    .footer-logo .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .footer-logo img {
+      height: 35px;
+      transition: transform 0.3s;
+    }
+    .footer-logo img:hover {
+      transform: scale(1.1) rotate(-3deg);
+    }
+
+    /* ===============================
+   RESPONSIVE ANDROID (BOOTSTRAP 5)
+   =============================== */
+
+/* --- HEADER RESPONSIVE --- */
+@media (max-width: 768px) {
+
+  .content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .fototefa {
+        width: 90%;
+      }
+
+      .button {
+        justify-content: center;
+      }
+
+      footer {
+        flex-direction: column;
+        padding: 20px;
+        align-items: flex-start;
+      }
+
+      .footer-logo {
+        position: static;
+        margin-top: 20px;
+      }
+
+      .footer-nav {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+      }
+      .hamburger {
+        display: block;
+    }
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: #31473A;
+        width: 220px;
+        flex-direction: column;
+        padding: 20px 10px;
+        border-radius: 0 0 0 15px;
+        display: none;     
+      }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: left;
+        margin: 5px 0;
+    }
+
+        .dropdown-mobile > a {
+        display: block;
+        width: 100%;
+    }
+
+        .dropdown-mobile .dropdown-list {
+        display: none;
+        position: static;         
+        background-color: transparent;         
+        box-shadow: none;
+        padding-left: 7px;         
+        min-width: auto;
+    }
+
+        .dropdown-mobile.active .dropdown-list {
+        display: block;     }
+
+    .dropdown-mobile .dropdown-list li a {
+        color: white;         
+        padding: 5px 0;
+        font-size: 13px;
+    }
+}
+
+
+/* --- HERO / OVERLAY SECTION --- */
+@media (max-width: 768px) {
+
+  .utama h1 {
+    padding: 0 !important;
+    font-size: 22px;
+    text-align:center;
+  }
+
+  .p1 {
+    padding: 10px !important;
+    text-align:center;
+    font-size: 14px;
+  }
+
+  .utama h2 {
+    font-size: 18px;
+  }
+}
+
+
+/* --- ARTIKEL RESPONSIVE --- */
+@media (max-width: 768px) {
+
+  .artikel {
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  .p2 {
+    font-size: 14px;
+    padding: 8px;
+    text-indent: 20px;
+  }
+}
+
+
+/* --- SECTION PRODUK KUALITAS --- */
+@media (max-width: 768px) {
+
+  .container {
+    flex-direction: column !important;
+    gap: 10px !important;
+    padding: 10px;
+  }
+
+  .text {
+    max-width:100%;
+    margin:0 !important;
+    padding:20px !important;
+    text-indent:20px !important;
+  }
+
+  .image {
+    margin: 0 !important;
+    height:auto !important;
+  }
+
+  .image img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+/* --- KETERAMPILAN SECTION --- */
+@media (max-width: 768px) {
+  .keterampilan {
+    padding:15px !important;
+    margin:20px 10px;
+    border-radius:15px;
+  }
+
+  .isi p {
+    text-indent:20px !important;
+    font-size: 14px;
+  }
+}
+
+
+/* --- FOOTER RESPONSIVE --- */
+@media (min-width: 769px) {
+    .dropdown-mobile:hover .dropdown-list {
+        display: block;     }
+}
+    </style>
+</head>
+<body>
+<!-- ===== HEADER ===== -->
+   <header class="header">
+    <div class="header-content">
+      <div class="hamburger" onclick="toggleMenu()">
+          <i class="bi bi-list"></i>
+      </div>
+      <img src="foto/SIP.png" alt="Sip Logo" class="logo">
+      <h6 id="namatefa">Tefa Pengelolahan<br>Produk Kopi</h6>
+      <nav>
+
+    <ul class="nav-links">
+        <li><a href="home.html">Beranda</a></li>
+        <li><a href="profil.html">Profil</a></li>
+        <li><a href="keunggulan.html">Keunggulan</a></li>
+        <li><a href="dokumentasi.html">Dokumentasi</a></li>
+        <li><a href="produk.html">Produk</a></li>
+
+        <li class="dropdown-mobile">
+            <a href="#">Mitra ▾</a>
+            <ul class="dropdown-list">
+                <li><a href="syarat.html">Syarat & Standar bahan baku</a></li>
+                <hr style="color: white;">
+                <li><a href="tentang-mitra.html">Tentang Mitra</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+    </div>
+  </header>
+
+  
+<div class="overlay">
+  <div class="utama">
+    <h1 style="font-weight: 800;">Kolaborasi dan Rantai Pasok TEFA Pengolahan Produk Kopi<br></h1>
+<p class="p1">Menghubungkan proses pembelajaran dengan dunia usaha kopi lokal untuk<br>menciptakan pengalaman belajar berbasis industri.</p>
+<h2 style="font-weight: 800;">Tentang Kemitraan dan Rantai Pasok</h2>
+<div class="artikel">
+<p class="p2">Kami, TEFA Pengolahan Produk Kopi Politeknik Negeri Jember menjalankan kegiatan produksi berbasis praktik nyata. Dalam proses tersebut, kami tidak hanya berfokus pada kegiatan pembelajaran internal, tetapi juga berinteraksi dengan pihak luar kampus.</p>
+<p class="p2">Sebagian bahan baku biji kopi yang digunakan dalam kegiatan produksi diperoleh dari petani dan pelaku usaha kopi di sekitar Jember dan wilayah sekitarnya. Melalui hubungan ini, TEFA Pengolahan Produk Kopi berperan sebagai penghubung antara dunia pendidikan dan dunia usaha, khususnya dalam memperkuat pemahaman mahasiswa terhadap rantai pasok industri kopi.
+</p>
+<p class="p2">Walaupun belum menjalin kemitraan formal, kegiatan ini menjadi bentuk kolaborasi nyata dalam skala kecil untuk mengenalkan mahasiswa pada proses bisnis kopi secara utuh, mulai dari pengadaan bahan baku hingga produk akhir yang siap jual.</p>
+<p class="p2">Ke depan, TEFA Pengolahan Kopi terus berupaya mengembangkan jejaring yang lebih luas dengan petani, pelaku industri, maupun lembaga penelitian, untuk memperkaya proses pembelajaran dan inovasi produk kopi lokal.</p>
+  </div>
+  </div>
+  </div>
+
+  <div class="container">
+    <div class="text">
+        <h2>Produk Kualitas</h2>
+        <p>
+            Secara ilmiah, majalah bukti nyata bahwa produk kopi hasil pengolahan dari TEFA Politeknik Negeri 
+            Jember memiliki mutu yang baik. Hal ini dibuktikan melalui proses produksi yang ketat dan sesuai 
+            standar mutu yang ditetapkan, baik dari segi kebersihan, teknologi, maupun parameter kualitas lainnya.
+        </p>
+    </div>
+
+    <div class="image">
+        <img src="./foto/sertif.png" alt="Sertifikat Produk">
+    </div>
+</div>
+
+  <div class="keterampilan">
+    <div class="isi p">
+<h3 style="font-weight: bold;">Pengakuan Keterampilan</h3>
+<p>Sertifikat juga diberikan kepada para lulusan sebagai bentuk pengakuan resmi atas kompetensi dan kemampuan profesional yang telah mereka kuasai selama mengikuti pendidikan dan pelatihan. Melalui proses pembelajaran berbasis praktik langsung di TEFA, lulusan dibekali keterampilan nyata di dunia industri kopi, mulai dari kemampuan teknis hingga manajerial. Kompetensi tersebut mencakup berbagai peran penting seperti asisten tanaman yang memahami budidaya kopi sejak tahap pembibitan, supervisor produksi yang mampu mengawasi alur kerja pengolahan, coffee roaster yang mahir menentukan profil sangrai terbaik, hingga barista yang memiliki keterampilan menyajikan kopi dengan standar pelayanan unggul. Sertifikat ini memberikan nilai tambah bagi lulusan saat memasuki dunia kerja, karena menjadi bukti kesiapan dan keahlian yang telah diakui secara profesional.
+<h3 style="font-weight: bold;">Peningkatan Nilai Jual:</h3>
+<p>Keberadaan sertifikat tidak hanya bermanfaat bagi lulusan, tetapi juga memberikan dampak positif terhadap posisi produk kopi di pasar. Sertifikat menjadi simbol jaminan mutu yang menunjukkan bahwa produk telah melalui proses pengolahan yang terstandar dan diawasi dengan baik. Dengan adanya pengakuan ini, konsumen akan merasa lebih yakin terhadap kualitas rasa, kebersihan, serta keamanan produk yang mereka konsumsi. Dampaknya, nilai jual produk kopi meningkat, daya tawarnya semakin kuat, dan produk memiliki posisi kompetitif yang lebih baik dibandingkan dengan produk sejenis yang belum memiliki sertifikasi kualitas.
+<h3 style="font-weight: bold;">Jembatan Industri :</h3>
+<p>Fasilitas TEFA beserta sertifikat yang dihasilkan memiliki peran penting sebagai penghubung antara pendidikan vokasi dan dunia industri. Melalui sistem pembelajaran langsung di lingkungan produksi yang menyerupai dunia kerja, mahasiswa mendapatkan pengalaman nyata, memahami standar operasional industri, serta belajar menyelesaikan tantangan kerja secara profesional.</p>
+    </div>
+    </div>
+  
+  
+    <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-map">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4241018885855!2d113.72049837325116!3d-8.159955091870668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b617d8f623%3A0xf6c4437632474338!2sState%20Polytechnic%20of%20Jember!5e0!3m2!1sen!2sid!4v1762577630234!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      <p style="font-size: 12px; margin-top: 5px; color: #333;">© 2025 TEFA Pengelolahan Produk Kopi</p>
+    </div>
+
+    <div class="footer-contact">
+      <p>
+        <strong>Email:</strong> - <br>
+        <strong>Contact:</strong> +62-8527-7714-545<br>
+        <strong>Alamat:</strong> Lab. PHTP Politeknik Negeri Jember
+      </p>
+      <p>
+        <strong>Mitra Collaborator TEFA Pengelolahan Produk Kopi</strong><br>
+        &bull; TEFA UHT<br>
+        &bull; TEFA Bakery dan Coffee
+      </p>
+    </div>
+
+    <div class="footer-nav">
+      <div>
+        <strong>About Us</strong>
+        <a href="/profil.html">Profil</a>
+        <a href="/keunggulan.html">Keunggulan</a>
+        <a href="/profil.html#StrukturAnggota">Struktur Keanggotaan</a>
+      </div>
+      <div>
+        <strong>Support</strong>
+        <a href="/dokumentasi.html">Dokumentasi</a>
+      </div>
+    </div>
+
+    <div class="footer-logo">
+      <img src="foto/Logo Politeknik Negeri Jember.png" alt="Politeknik Negeri Jember Logo">
+      <img src="foto/SIP.png" alt="SIP Logo">
+      <div class="logo-text">
+        <h5 style="margin:0; font-size:14px;">POLITEKNIK</h5>
+        <h6 style="margin:0; font-size:12px;">NEGERI JEMBER</h6>
+      </div>
+      <img src="foto/badan-layanan-umum-blu-logo-png_seeklogo-620376.png" alt="BLU Logo">
+    </div>
+  </footer>
+  <script>
+     function toggleMenu() {
+    document.querySelector(".nav-links").classList.toggle("active");
+}
+
+document.addEventListener("click", function (e) {
+    if (e.target.closest(".dropdown-mobile > a")) {
+        e.preventDefault();
+        const parent = e.target.parentElement;
+        parent.classList.toggle("active");
+    }
+});
+  </script>
+</body>
+</html>

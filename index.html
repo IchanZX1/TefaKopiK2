@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tefa Pengelolaan Produk Kopi POLIJE</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+/* --- Animasi scroll --- */
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+    * {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: white;
+      line-height: 1.6;
+      
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      display: flex;
+      align-items: center;
+      background-color: #31473A;
+      box-shadow: 0 4px 6px rgba(49,71,58,0.3);
+      width: 100%;
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000; 
+    }
+
+    .hamburger {
+    margin-right: 11px;
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.dropdown-mobile {
+    position: relative; }
+
+.dropdown-mobile .dropdown-list {
+    display: none;     
+    position: absolute;
+    top: 100%;     
+    left: 0;
+    list-style: none;
+    background-color: #31473A;     
+    padding: 10px 14px;
+    min-width: 180px;
+    border-radius: 7px;
+    z-index: 990; 
+  }
+
+    .header-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      height: 40px;
+      margin-right: 10px;
+      transition: transform 0.3s ease;
+    }
+    .logo:hover {
+      transform: scale(1.1) rotate(-3deg);
+    }
+
+    #namatefa {
+      font-size: 14px;
+      line-height: 1.2;
+      color: white;
+      transition: color 0.3s;
+    }
+
+    nav {
+      margin-left: auto;
+    }
+
+    nav a {
+      color: #ffffff;
+      font-size: 13px;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav a:hover {
+      color: #a3b18a;
+      transform: translateY(-3px);
+    }
+
+    /* ===== BAGIAN UTAMA ===== */
+    .part1 {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .content .text {
+      flex: 1;
+    }
+
+    .content .text h2 {
+      margin-bottom: 10px;
+      font-size: 26px;
+      transition: color 0.3s;
+    }
+
+    .content .text h2:hover {
+      color: #7ec8a3;
+    }
+
+    .content .text p {
+      margin-bottom: 25px;
+    }
+
+    .fototefa {
+      width: 420px;
+      height: auto;
+      border-radius: 10px;
+      flex-shrink: 0;
+      transition: transform 0.5s ease;
+    }
+
+    .fototefa:hover {
+      transform: scale(1.03) rotate(-1deg);
+    }
+
+    /* ===== TOMBOL ===== */
+    .button {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background-color: #31473A;
+      color: #ffffff;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #e3dac9;
+      color: #31473A;
+      transform: scale(1.05);
+    }
+
+    .produk {
+      background-color:#ffffff;
+      color: #31473A;
+      border: 2px solid #31473A;
+      padding: 10px 25px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s, transform 0.3s;
+    }
+
+    .produk:hover {
+      background-color: #31473A;
+      color: #e3dac9;
+      transform: scale(1.05);
+    }
+
+    h4 {
+      background-color:#31473A;
+      color: #e3dac9;
+      border-radius: 5px;
+      padding: 7px 35px;
+      display: inline-block;
+      margin: 10px 0;
+      margin-top: 70px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+
+
+    .informasi {
+      background-color:  #a3b18a;
+      padding: 40px;
+      border-radius: 90px 90px 0 0;
+      color: #31473A;
+      transition: background 0.3s;
+    }
+
+    .informasi:hover {
+      background-color: #9cbf82;
+    }
+
+    .informasi p {
+      margin-bottom: 15px;
+      line-height: 1.8;
+    }
+
+    .informasi ul {
+      margin-top: -20px;
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: #f5f5f5;
+      padding: 40px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-top: 1px solid #ddd;
+      position: relative;
+    }
+
+    .footer-map iframe {
+      width: 100%;
+      max-width: 250px;
+      height: 150px;
+      border: 0;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .footer-map iframe:hover {
+      transform: scale(1.02);
+    }
+
+    .footer-contact {
+      flex-grow: 1;
+      max-width: 350px;
+      font-size: 14px;
+      color: #1e3d22;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 60px;
+      font-size: 14px;
+      color: #1e3d22;
+      max-width: 500px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-nav div strong {
+      margin-bottom: 8px;
+    }
+
+    .footer-nav div a {
+      text-decoration: none;
+      color: #1e3d22;
+      margin-bottom: 4px;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .footer-nav div a:hover {
+      color: #007bff;
+      transform: translateX(3px);
+    }
+
+    .footer-logo {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: rgba(197, 197, 197, 0.1);
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      flex-wrap: wrap;
+      transition: transform 0.3s;
+    }
+    .footer-logo:hover {
+      transform: scale(1.03);
+    }
+
+    .footer-logo .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .footer-logo img {
+      height: 35px;
+      transition: transform 0.3s;
+    }
+    .footer-logo img:hover {
+      transform: scale(1.1) rotate(-3deg);
+    }
+
+    /* ===== RESPONSIF ===== */
+    @media (max-width: 768px) {
+      .content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .fototefa {
+        width: 90%;
+      }
+
+      .button {
+        justify-content: center;
+      }
+
+      footer {
+        flex-direction: column;
+        padding: 20px;
+        align-items: flex-start;
+      }
+
+      .footer-logo {
+        position: static;
+        margin-top: 20px;
+      }
+
+      .footer-nav {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+      }
+      .hamburger {
+        display: block;
+    }
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: #31473A;
+        width: 220px;
+        flex-direction: column;
+        padding: 20px 10px;
+        border-radius: 0 0 0 15px;
+        display: none;     
+      }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: left;
+        margin: 5px 0;
+    }
+
+        .dropdown-mobile > a {
+        display: block;
+        width: 100%;
+    }
+
+        .dropdown-mobile .dropdown-list {
+        display: none;
+        position: static;         
+        background-color: transparent;         
+        box-shadow: none;
+        padding-left: 7px;         
+        min-width: auto;
+    }
+
+        .dropdown-mobile.active .dropdown-list {
+        display: block;     }
+
+    .dropdown-mobile .dropdown-list li a {
+        color: white;         
+        padding: 5px 0;
+        font-size: 13px;
+    }
+    }
+    
+  </style>
+</head>
+
+<body>
+  <!-- ===== HEADER ===== -->
+   <header class="header">
+    <div class="header-content">
+      <div class="hamburger" onclick="toggleMenu()">
+          <i class="bi bi-list"></i>
+      </div>
+      <img src="foto/SIP.png" alt="Sip Logo" class="logo">
+      <h6 id="namatefa">Tefa Pengelolahan<br>Produk Kopi</h6>
+      <nav>
+
+    <ul class="nav-links">
+        <li><a href="home.html">Beranda</a></li>
+        <li><a href="profil.html">Profil</a></li>
+        <li><a href="keunggulan.html">Keunggulan</a></li>
+        <li><a href="dokumentasi.html">Dokumentasi</a></li>
+        <li><a href="produk.html">Produk</a></li>
+
+        <li class="dropdown-mobile">
+            <a href="#">Mitra ▾</a>
+            <ul class="dropdown-list">
+                <li><a href="syarat.html">Syarat & Standar bahan baku</a></li>
+                <hr style="color: white;">
+                <li><a href="tentang-mitra.html">Tentang Mitra</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+    </div>
+  </header>
+
+  <!-- ===== KONTEN UTAMA ===== -->
+  <div class="part1 hidden">
+    <div class="content">
+      <div class="text">
+        <h2><strong>Sejarah Mengenai TEFA<br>Pengelolahan Produk Kopi</strong></h2>
+        <p>
+          TEFA Pengolahan Kopi lahir dari praktikum mahasiswa
+          yang mengolah biji kopi menjadi bubuk. Karena ada
+          peluang besar, TEFA mulai dikembangkan sejak 2020
+          dan resmi berdiri pada 2023 sebagai tempat belajar,
+          produksi, dan usaha berbasis kopi.
+        </p>
+        <section class="button">
+          <a href="/hubungi-kami.html" class="btn">Hubungi Kami</a>
+          <a href="#" class="produk">Produk</a>
+        </section>
+      </div>
+      <img src="foto/fotohonne.jpeg" alt="Fototefa" class="fototefa">
+    </div>
+
+    <h4>Visi</h4>
+    <p style="margin-top: 0px;">Menjadi produsen olahan kopi yang terkemuka di Indonesia pada tahun 2028</p>
+
+    <h4 style="margin-top: 0px;">Misi</h4>
+    <ol style="padding-left: 22px;">
+      <li>Menerapkan Good Manufacturing Practices (GMP) dan keamanan pangan</li>
+      <li>Menerapkan panduan mutu yang telah ditetapkan perusahaan</li>
+      <li>Meningkatkan kemampuan sumber daya manusia</li>
+      <li>Menjamin sarana dan prasarana yang memadai</li>
+      <li>Menjalin dan memperluas mitra usaha yang strategis</li>
+      <li>Meningkatkan mutu dan layanan perusahaan secara kontinu</li>
+    </ol>
+  </div>
+
+  <div class="informasi">
+    <h2 style="text-align: center;">Informasi Pemesanan</h2>
+    <p>
+      Untuk pemesanan atau pembelian saat ini, Anda perlu menghubungi langsung pihak TEFA di Politeknik Negeri Jember,
+      karena produk belum dapat dipasarkan secara eksternal dan komersial lebih luas hingga sertifikasi tambahan selesai diurus.
+    </p>
+    
+    <p>Anda dapat mengunjungi lokasi TEFA di:</p>
+    <ul>
+      <li>Alamat: Jl. Mastrip Po. Box 164 Jember (Tefa Pengolahan Produk Kopi).</li>
+    </ul>
+    
+    <p>
+      Untuk detail kontak person atau prosedur pemesanan yang lebih spesifik,
+      disarankan untuk mencari informasi kontak resmi Politeknik Negeri Jember.
+    </p>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-map">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4241018885855!2d113.72049837325116!3d-8.159955091870668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b617d8f623%3A0xf6c4437632474338!2sState%20Polytechnic%20of%20Jember!5e0!3m2!1sen!2sid!4v1762577630234!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      <p style="font-size: 12px; margin-top: 5px; color: #333;">© 2025 TEFA Pengelolahan Produk Kopi</p>
+    </div>
+
+    <div class="footer-contact">
+      <p>
+        <strong>Email:</strong> - <br>
+        <strong>Contact:</strong> +62-8527-7714-545<br>
+        <strong>Alamat:</strong> Lab. PHTP Politeknik Negeri Jember
+      </p>
+      <p>
+        <strong>Mitra Collaborator TEFA Pengelolahan Produk Kopi</strong><br>
+        &bull; TEFA UHT<br>
+        &bull; TEFA Bakery dan Coffee
+      </p>
+    </div>
+
+    <div class="footer-nav">
+      <div>
+        <strong>About Us</strong>
+        <a href="/profil.html">Profil</a>
+        <a href="/keunggulan.html">Keunggulan</a>
+        <a href="/profil.html#StrukturAnggota">Struktur Keanggotaan</a>
+      </div>
+      <div>
+        <strong>Support</strong>
+        <a href="/dokumentasi.html">Dokumentasi</a>
+      </div>
+    </div>
+
+    <div class="footer-logo">
+      <img src="foto/Logo Politeknik Negeri Jember.png" alt="Politeknik Negeri Jember Logo">
+      <img src="foto/SIP.png" alt="SIP Logo">
+      <div class="logo-text">
+        <h5 style="margin:0; font-size:14px;">POLITEKNIK</h5>
+        <h6 style="margin:0; font-size:12px;">NEGERI JEMBER</h6>
+      </div>
+      <img src="foto/badan-layanan-umum-blu-logo-png_seeklogo-620376.png" alt="BLU Logo">
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+    document.querySelector(".nav-links").classList.toggle("active");
+}
+
+document.addEventListener("click", function (e) {
+    if (e.target.closest(".dropdown-mobile > a")) {
+        e.preventDefault();
+        const parent = e.target.parentElement;
+        parent.classList.toggle("active");
+    }
+});
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  });
+
+  const hiddenElements = document.querySelectorAll('.hidden');
+  hiddenElements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

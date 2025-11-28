@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tefa Pengelolaan Produk Kopi POLIJE</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+/* --- Animasi scroll --- */
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+        /* utama */
+    * {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #31473A;
+      line-height: 1.6;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      display: flex;
+      align-items: center;
+      background-color: #31473A;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      width: 100%;
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000; 
+    }
+
+    .hamburger {
+    margin-right: 11px;
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.dropdown-mobile {
+    position: relative; }
+
+.dropdown-mobile .dropdown-list {
+    display: none;     
+    position: absolute;
+    top: 100%;     
+    left: 0;
+    list-style: none;
+    background-color: #31473A;     
+    padding: 10px 14px;
+    min-width: 180px;
+    border-radius: 7px;
+    z-index: 990; 
+  }
+
+    .header-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      height: 40px;
+      margin-right: 10px;
+      transition: transform 0.3s ease;
+    }
+    .logo:hover {
+      transform: scale(1.1) rotate(-3deg);
+    }
+
+    #namatefa {
+      font-size: 14px;
+      line-height: 1.2;
+      color: white;
+      transition: color 0.3s;
+    }
+
+    nav {
+      margin-left: auto;
+    }
+
+    nav a {
+      color: #ffffff;
+      font-size: 13px;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav a:hover {
+      color: #a3b18a;
+      transform: translateY(-3px);
+    }
+
+    /* Konten Utama */
+    .alat-section h2 {
+  padding: 0 50px;
+  color: #31473A;
+  font-size: 25px;
+  margin: 50px 0 30px;
+  background: none;
+}
+
+.alat-section {
+  background-color: #31473A;
+  padding-bottom: 10px;
+padding-top: 10px;
+}
+
+
+.alat-grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  background-color: #31473A;
+  border-radius: 0  0 100px 100px;
+  padding: 0 97px 50px 97px;
+}
+
+    
+    
+
+ .alat {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #0a140e9d;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: white; /* biar teksnya kontras */
+    text-align: justify; /* paragraf rapi */
+ 
+}
+
+.alat:nth-of-type(1),
+.alat:nth-of-type(2) {
+    margin-top: 2px;
+}
+
+
+
+.alat img {
+    width: 170px;
+    border-radius: 10px;
+    flex-shrink: 0; /* biar gambar tidak mengecil */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+
+.alat p {
+    margin: 0;
+    color: rgb(255, 255, 255);
+    line-height: 1.3;
+}
+
+.alat:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.alat:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.alat p span {
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.alat:hover p span {
+    color:#a3b18a;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  z-index: 10;
+}
+
+/* Style link di dalam dropdown */
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* Tampilkan dropdown saat hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Opsional: style tombol dropdown agar konsisten dengan link lainnya */
+.dropbtn {
+  cursor: pointer;
+}
+
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: #f5f5f5;
+      padding: 40px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-top: 1px solid #ddd;
+      position: relative;
+    }
+
+    .footer-map iframe {
+      width: 100%;
+      max-width: 250px;
+      height: 150px;
+      border: 0;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .footer-map iframe:hover {
+      transform: scale(1.02);
+    }
+
+    .footer-contact {
+      flex-grow: 1;
+      max-width: 350px;
+      font-size: 14px;
+      color: #1e3d22;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 60px;
+      font-size: 14px;
+      color: #1e3d22;
+      max-width: 500px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-nav div strong {
+      margin-bottom: 8px;
+    }
+
+    .footer-nav div a {
+      text-decoration: none;
+      color: #1e3d22;
+      margin-bottom: 4px;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .footer-nav div a:hover {
+      color: #007bff;
+      transform: translateX(3px);
+    }
+
+    .footer-logo {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: rgba(197, 197, 197, 0.1);
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      flex-wrap: wrap;
+      transition: transform 0.3s;
+    }
+    .footer-logo:hover {
+      transform: scale(1.03);
+    }
+
+    .footer-logo .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .footer-logo img {
+      height: 35px;
+      transition: transform 0.3s;
+    }
+    .footer-logo img:hover {
+      transform: scale(1.1) rotate(-3deg);
+    }
+    @media (min-width: 769px) {
+    .dropdown-mobile:hover .dropdown-list {
+        display: block;     }
+}
+    @media (max-width: 768px) {
+      .judulheader {
+        flex-direction: column;
+        text-align: center;
+      }
+
+    /* Header */
+    .header-content {
+        flex-direction: row;
+        padding: 0 15px;
+    }
+
+    nav a {
+        margin: 0 8px;
+        font-size: 12px;
+    }
+
+    /* Grid alat */
+    .alat-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 15px;
+        border-radius: 0;
+    }
+
+    .alat {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .alat img {
+        width: 120px;
+    }
+
+    footer {
+        flex-direction: column;
+        padding: 20px;
+        align-items: flex-start;
+      }
+
+      .footer-logo {
+        position: static;
+        margin-top: 20px;
+      }
+
+      .footer-nav {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+      }
+
+      .hamburger {
+        display: block;
+    }
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: #31473A;
+        width: 220px;
+        flex-direction: column;
+        padding: 20px 10px;
+        border-radius: 0 0 0 15px;
+        display: none;     
+      }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: left;
+        margin: 5px 0;
+    }
+
+        .dropdown-mobile > a {
+        display: block;
+        width: 100%;
+    }
+
+        .dropdown-mobile .dropdown-list {
+        display: none;
+        position: static;         
+        background-color: transparent;         
+        box-shadow: none;
+        padding-left: 7px;         
+        min-width: auto;
+    }
+
+        .dropdown-mobile.active .dropdown-list {
+        display: block;     }
+
+    .dropdown-mobile .dropdown-list li a {
+        color: white;         
+        padding: 5px 0;
+        font-size: 13px;
+    }
+}
+    </style>
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="header-content">
+      <div class="hamburger" onclick="toggleMenu()">
+          <i class="bi bi-list"></i>
+      </div>
+      <img src="foto/SIP.png" alt="Sip Logo" class="logo">
+      <h6 id="namatefa">Tefa Pengelolahan<br>Produk Kopi</h6>
+      <nav>
+
+    <ul class="nav-links">
+        <li><a href="home.html">Beranda</a></li>
+        <li><a href="profil.html">Profil</a></li>
+        <li><a href="keunggulan.html">Keunggulan</a></li>
+        <li><a href="dokumentasi.html">Dokumentasi</a></li>
+        <li><a href="produk.html">Produk</a></li>
+
+        <li class="dropdown-mobile">
+            <a href="#">Mitra ▾</a>
+            <ul class="dropdown-list">
+                <li><a href="syarat.html">Syarat & Standar bahan baku</a></li>
+                <hr style="color: white;">
+                <li><a href="tentang-mitra.html">Tentang Mitra</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+    </div>
+  </header>
+
+  <!-- KONTEN UTAMA -->
+   <section class="alat-section">
+    <h2 style="color: white;" class="judulheader">Keunggulan Kami <br>
+TEFA Pengolahan Produk Kopi</h2>
+   </section><hr>
+     <div class="alat-grid">
+    <div class="alat hidden">
+        <img src="foto/cofeeroaster.jpeg" alt="coffe roaster">
+        <p><span style="font-weight: bold;">Coffee Roaster</span><br>Untuk memanggang biji kopi mentah (green bean) melalui proses pemanasan terkontrol. Proses penyangraian inilah yang secara fundamental mengubah biji kopi, mengembangkan aroma, rasa, dan warna khas yang kita nikmati saat kopi diseduh.</p>
+    </div>
+    <div class="alat hidden">
+        <img src="foto/automatic.jpeg" alt="Automatic Sachet Packing">
+        <p><span style="font-weight: bold;">Automatic Sachet Packing Machine</span><br>Pada tahap akhir produksi untuk mengemas produk kopi—kemungkinan besar dalam bentuk bubuk—ke dalam kemasan siap jual. Secara otomatis, mesin ini akan membentuk kantong dari gulungan plastik, mengisinya dengan takaran kopi yang sudah diatur, kemudian menyegelnya dengan rapat. Ini adalah alat yang sangat penting untuk efisiensi produksi dalam skala industri.</p>
+    </div>
+    <div class="alat hidden">
+        <img src="foto/cofeegerinder.jpeg" alt="Coffee Grinder">
+        <p><span style="font-weight: bold;">Coffee Grinder</span><br>Setelah proses penyangraian, coffee akan digiling kembali dan akan diperhalus menjadi bubuk. Ukuran gilingan (kasar atau halus) akan disesuaikan dengan metode penyeduhan kopi yang akan digunakan. Mesin seperti ini biasanya digunakan untuk produksi skala kecil hingga menengah.</p>
+    </div>
+    <div class="alat hidden">
+        <img src="foto/digital.jpeg" alt="digital platform scale">
+        <p><span style="font-weight: bold;">digital platform scale</span><br>Untuk menimbang biji kopi, baik saat masih mentah (sebelum diolah) maupun setelah disangrai atau digiling (sebelum dikemas). Tujuannya adalah untuk memastikan takaran yang akurat dan konsisten untuk setiap batch produksi</p>
+    </div> </section>
+
+</div>
+
+     </div>
+  
+    <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-map">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4241018885855!2d113.72049837325116!3d-8.159955091870668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b617d8f623%3A0xf6c4437632474338!2sState%20Polytechnic%20of%20Jember!5e0!3m2!1sen!2sid!4v1762577630234!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      <p style="font-size: 12px; margin-top: 5px; color: #333;">© 2025 TEFA Pengelolahan Produk Kopi</p>
+    </div>
+
+    <div class="footer-contact">
+      <p>
+        <strong>Email:</strong> - <br>
+        <strong>Contact:</strong> +62-8527-7714-545<br>
+        <strong>Alamat:</strong> Lab. PHTP Politeknik Negeri Jember
+      </p>
+      <p>
+        <strong>Mitra Collaborator TEFA Pengelolahan Produk Kopi</strong><br>
+        &bull; TEFA UHT<br>
+        &bull; TEFA Bakery dan Coffee
+      </p>
+    </div>
+
+    <div class="footer-nav">
+      <div>
+        <strong>About Us</strong>
+        <a href="/profil.html">Profil</a>
+        <a href="/keunggulan.html">Keunggulan</a>
+        <a href="/profil.html#StrukturAnggota">Struktur Keanggotaan</a>
+      </div>
+      <div>
+        <strong>Support</strong>
+        <a href="/dokumentasi.html">Dokumentasi</a>
+      </div>
+    </div>
+
+    <div class="footer-logo">
+      <img src="foto/Logo Politeknik Negeri Jember.png" alt="Politeknik Negeri Jember Logo">
+      <img src="foto/SIP.png" alt="SIP Logo">
+      <div class="logo-text">
+        <h5 style="margin:0; font-size:14px;">POLITEKNIK</h5>
+        <h6 style="margin:0; font-size:12px;">NEGERI JEMBER</h6>
+      </div>
+      <img src="foto/badan-layanan-umum-blu-logo-png_seeklogo-620376.png" alt="BLU Logo">
+    </div>
+  </footer>
+
+<script>
+     function toggleMenu() {
+    document.querySelector(".nav-links").classList.toggle("active");
+}
+
+document.addEventListener("click", function (e) {
+    if (e.target.closest(".dropdown-mobile > a")) {
+        e.preventDefault();
+        const parent = e.target.parentElement;
+        parent.classList.toggle("active");
+    }
+});
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  });
+
+  const hiddenElements = document.querySelectorAll('.hidden');
+  hiddenElements.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

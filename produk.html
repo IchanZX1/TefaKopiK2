@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tefa Pengelolaan Produk Kopi POLIJE</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<style>
+    .hidden {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* BAGIAN FOTO */
+
+    #coffee-img {
+    height: 580px;     /* tinggi fix */
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+    .robusta {
+        background-color: #30261C;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px 100px;
+        min-height: 520px;
+    padding: 60px 100px;
+    }
+
+    .robusta .text {
+        max-width: 55%;
+        color: white;
+    }
+
+    .robusta .text h4 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        padding-bottom: 20px;
+    }
+
+    .robusta .text span {
+        color: #FF9200;
+    }
+
+    .robusta .text p {
+        text-align: justify;
+    }
+
+    .robusta img {
+        width: 40%;
+        height: auto;
+        transition: opacity 0.5s;
+       
+    }
+
+    .buttons {
+      margin-top: 0;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .btn-img {
+      width: 110px;
+      height: 140;
+      object-fit: contain;
+      cursor: pointer;
+      padding-top: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-img:hover {
+      transform: scale(1.08);
+    }
+
+    #tombolr {
+      width: 170px;
+      margin-bottom: 20px;
+    }
+
+    #tombol{
+       width: 117px;
+    }
+
+    #coffee-name small {
+    font-size: 18px; /* lebih kecil dari judul */
+    margin-left: 10px; /* jarak dari nama kopi */
+    vertical-align: middle; /* sejajar dengan teks */
+    font-weight: normal;
+    color: #FF9200; /* bisa disesuaikan */
+}
+
+    
+    * {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: white;
+      line-height: 1.6;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      background-color: #31473A;
+      box-shadow: 0 4px 6px rgba(49,71,58,0.3);
+      width: 100%;
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000; 
+    }
+
+    .hamburger {
+    margin-right: 11px;
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.dropdown-mobile {
+    position: relative; }
+
+.dropdown-mobile .dropdown-list {
+    display: none;     
+    position: absolute;
+    top: 100%;     
+    left: 0;
+    list-style: none;
+    background-color: #31473A;     
+    padding: 10px 14px;
+    min-width: 180px;
+    border-radius: 7px;
+    z-index: 990; 
+  }
+
+    .header-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      height: 40px;
+      margin-right: 10px;
+      transition: transform 0.3s ease;
+    }
+    .logo:hover {
+      transform: scale(1.1) rotate(-3deg);
+    }
+
+    #namatefa {
+      font-size: 14px;
+      line-height: 1.2;
+      color: white;
+    }
+
+    nav {
+      margin-left: auto;
+    }
+
+    nav a {
+      color: #ffffff;
+      font-size: 13px;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav a:hover {
+      color: #a3b18a;
+      transform: translateY(-3px);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: #f5f5f5;
+      padding: 40px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-top: 1px solid #ddd;
+      position: relative;
+    }
+
+    .footer-map iframe {
+      width: 100%;
+      max-width: 250px;
+      height: 150px;
+      border: 0;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .footer-map iframe:hover {
+      transform: scale(1.02);
+    }
+
+    .footer-contact {
+      flex-grow: 1;
+      max-width: 350px;
+      font-size: 14px;
+      color: #1e3d22;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 60px;
+      font-size: 14px;
+      color: #1e3d22;
+      max-width: 500px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-nav div strong {
+      margin-bottom: 8px;
+    }
+
+    .footer-nav div a {
+      text-decoration: none;
+      color: #1e3d22;
+      margin-bottom: 4px;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .footer-nav div a:hover {
+      color: #007bff;
+      transform: translateX(3px);
+    }
+
+    .footer-logo {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: rgba(197, 197, 197, 0.1);
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      flex-wrap: wrap;
+      transition: transform 0.3s;
+    }
+    .footer-logo:hover {
+      transform: scale(1.03);
+    }
+
+    .footer-logo .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .footer-logo img {
+      height: 35px;
+      transition: transform 0.3s;
+    }
+    .footer-logo img:hover {
+      transform: scale(1.1) rotate(-3deg);
+    }
+
+    #coffee-price{
+      color: #FF9200;
+    }
+    @media (min-width: 769px) {
+    .dropdown-mobile:hover .dropdown-list {
+        display: block;     }
+}
+@media (max-width: 768px) {
+  
+
+  .robusta {
+      flex-direction: column;
+      padding: 25px 20px !important;
+      text-align: center;
+      gap: 25px;
+      min-height: auto;
+  }
+
+  .robusta .text {
+      max-width: 100% !important;
+  }
+
+  .robusta h4 {
+      font-size: 18px;
+      line-height: 1.4;
+  }
+
+  #coffee-name {
+      font-size: 26px;
+  }
+
+  #coffee-price {
+      font-size: 22px;
+      margin-bottom: 10px;
+  }
+
+  #coffee-desc {
+      font-size: 14px;
+      padding: 0 5px;
+      text-align: justify;
+  }
+
+  #coffee-img {
+      width: 90% !important;
+      height: auto !important;
+      object-fit: contain;
+      margin: 0 auto;
+  }
+
+  .buttons {
+      gap: 15px;
+  }
+
+  .btn-img {
+      width: 80px;
+      height: auto;
+  }
+
+  #tombolr {
+      width: 110px !important;
+  }
+  #tombol {
+      width: 95px !important;
+  }
+
+  footer {
+        flex-direction: column;
+        padding: 20px;
+        align-items: flex-start;
+      }
+
+      .footer-logo {
+        position: static;
+        margin-top: 20px;
+      }
+
+      .footer-nav {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+      }
+      .hamburger {
+        display: block;
+    }
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: #31473A;
+        width: 220px;
+        flex-direction: column;
+        padding: 20px 10px;
+        border-radius: 0 0 0 15px;
+        display: none;     
+      }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: left;
+        margin: 5px 0;
+    }
+
+        .dropdown-mobile > a {
+        display: block;
+        width: 100%;
+    }
+
+        .dropdown-mobile .dropdown-list {
+        display: none;
+        position: static;         
+        background-color: transparent;         
+        box-shadow: none;
+        padding-left: 7px;         
+        min-width: auto;
+    }
+
+        .dropdown-mobile.active .dropdown-list {
+        display: block;     }
+
+    .dropdown-mobile .dropdown-list li a {
+        color: white;         
+        padding: 5px 0;
+        font-size: 13px;
+    }
+}
+</style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+   <header class="header">
+    <div class="header-content">
+      <div class="hamburger" onclick="toggleMenu()">
+          <i class="bi bi-list"></i>
+      </div>
+      <img src="foto/SIP.png" alt="Sip Logo" class="logo">
+      <h6 id="namatefa">Tefa Pengelolahan<br>Produk Kopi</h6>
+      <nav>
+
+    <ul class="nav-links">
+        <li><a href="home.html">Beranda</a></li>
+        <li><a href="profil.html">Profil</a></li>
+        <li><a href="keunggulan.html">Keunggulan</a></li>
+        <li><a href="dokumentasi.html">Dokumentasi</a></li>
+        <li><a href="produk.html">Produk</a></li>
+
+        <li class="dropdown-mobile">
+            <a href="#">Mitra ▾</a>
+            <ul class="dropdown-list">
+                <li><a href="syarat.html">Syarat & Standar bahan baku</a></li>
+                <hr style="color: white;">
+                <li><a href="tentang-mitra.html">Tentang Mitra</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+    </div>
+  </header>
+
+<!-- ===== BAGIAN PRODUK ===== -->
+<div class="robusta" id="coffee-section">
+  <div class="text hidden">
+    <h2 id="coffee-sub"><span>Temukan rasa</span> sempurna <span> yang dibuat </span><br>khusus untukmu.</h2><br>
+    <h1 id="coffee-name">Arabika <small id="coffee-weight">150g</small></h1>
+
+    <h2 id="coffee-price">Rp 50.000,00</h2>
+    <p id="coffee-desc">
+      Bubuk kopi Arabika adalah hasil gilingan biji kopi Arabika yang dikenal memiliki cita rasa halus, aroma wangi yang khas, serta tingkat keasaman yang seimbang. Kopi ini biasanya memiliki rasa sedikit manis dengan sentuhan buah atau cokelat, menjadikannya favorit bagi penikmat kopi yang menyukai rasa lembut dan kompleks.
+    </p>
+
+    <div class="buttons">
+      <img src="foto/arabika.png" class="btn-img" id="tombolr" onclick="showCoffee('robusta')">
+      <img src="foto/robusta.png" class="btn-img" id="tombol" onclick="showCoffee('arabica')">
+    </div>
+  </div>
+
+  <img id="coffee-img" class="img-robusta" src="foto/arabikabagus.png" alt="robusta">
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-map">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4241018885855!2d113.72049837325116!3d-8.159955091870668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b617d8f623%3A0xf6c4437632474338!2sState%20Polytechnic%20of%20Jember!5e0!3m2!1sen!2sid!4v1762577630234!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      <p style="font-size: 12px; margin-top: 5px; color: #333;">© 2025 TEFA Pengelolahan Produk Kopi</p>
+    </div>
+
+    <div class="footer-contact">
+      <p>
+        <strong>Email:</strong> - <br>
+        <strong>Contact:</strong> +62-8527-7714-545<br>
+        <strong>Alamat:</strong> Lab. PHTP Politeknik Negeri Jember
+      </p>
+      <p>
+        <strong>Mitra Collaborator TEFA Pengelolahan Produk Kopi</strong><br>
+        &bull; TEFA UHT<br>
+        &bull; TEFA Bakery dan Coffee
+      </p>
+    </div>
+
+    <div class="footer-nav">
+      <div>
+        <strong>About Us</strong>
+        <a href="/profil.html">Profil</a>
+        <a href="/keunggulan.html">Keunggulan</a>
+        <a href="/profil.html#StrukturAnggota">Struktur Keanggotaan</a>
+      </div>
+      <div>
+        <strong>Support</strong>
+        <a href="/dokumentasi.html">Dokumentasi</a>
+      </div>
+    </div>
+
+    <div class="footer-logo">
+      <img src="foto/Logo Politeknik Negeri Jember.png" alt="Politeknik Negeri Jember Logo">
+      <img src="foto/SIP.png" alt="SIP Logo">
+      <div class="logo-text">
+        <h5 style="margin:0; font-size:14px;">POLITEKNIK</h5>
+        <h6 style="margin:0; font-size:12px;">NEGERI JEMBER</h6>
+      </div>
+      <img src="foto/badan-layanan-umum-blu-logo-png_seeklogo-620376.png" alt="BLU Logo">
+    </div>
+  </footer>
+
+
+<script>
+   function toggleMenu() {
+    document.querySelector(".nav-links").classList.toggle("active");
+}
+
+document.addEventListener("click", function (e) {
+    if (e.target.closest(".dropdown-mobile > a")) {
+        e.preventDefault();
+        const parent = e.target.parentElement;
+        parent.classList.toggle("active");
+    }
+});
+
+function showCoffee(type) {
+  const section = document.getElementById("coffee-section");
+  const coffeeName = document.getElementById("coffee-name"); // h1
+  const coffeeWeight = document.getElementById("coffee-weight"); // small
+  const coffeeSub = document.getElementById("coffee-sub");   // h4
+  const price = document.getElementById("coffee-price");     // h2
+  const desc = document.getElementById("coffee-desc");       // p
+  const img = document.getElementById("coffee-img");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+    if (type === "robusta") {
+      section.style.backgroundColor = "#30261C";
+      coffeeName.firstChild.textContent = "Arabika"; // nama kopi
+      coffeeWeight.textContent = "150g"; // berat kopi
+      price.innerText = "Rp 50.000,00";
+      desc.innerText = "Bubuk kopi Arabika adalah hasil gilingan biji kopi Arabika yang dikenal memiliki cita rasa halus, aroma wangi yang khas, serta tingkat keasaman yang seimbang. Kopi ini biasanya memiliki rasa sedikit manis dengan sentuhan buah atau cokelat, menjadikannya favorit bagi penikmat kopi yang menyukai rasa lembut dan kompleks.";
+      img.src = "foto/arabikabagus.png";
+
+      coffeeSub.querySelectorAll("span").forEach(s => s.style.color = "#FF9200");
+      coffeeSub.style.color = "#FFFFFF";
+      coffeeName.style.color = "#FFFFFF";
+      desc.style.color = "#FFFFFF";
+    }
+
+    if (type === "arabica") {
+      section.style.backgroundColor = "#E2D9C8";
+      coffeeName.firstChild.textContent = "Robusta "; // nama kopi
+      coffeeWeight.textContent = "130g"; // berat kopi
+      price.innerText = "Rp 25.000,00";
+      desc.innerText = "Bubuk kopi Robusta menawarkan rasa kuat, pekat dan bold dengan dominasi pahit khas dark chocolate serta aroma earthy. Bodynya lebih tebal, meninggalkan aftertaste yang tahan lama. Dengan kandungan kafein lebih tinggi, Robusta cocok untuk penikmat kopi yang menginginkan energi ekstra dan cita rasa kopi yang lebih tegas.";
+      img.src = "foto/robustabagus.png";
+
+      coffeeSub.querySelectorAll("span").forEach(s => s.style.color = "#FF9200");
+      coffeeSub.style.color = "#30261C";
+      coffeeName.style.color = "#30261C";
+      desc.style.color = "#30261C";
+    }
+img.className = "img-arabica";
+
+    img.style.opacity = "1";
+  }, 300);
+}
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  });
+
+  const hiddenElements = document.querySelectorAll('.hidden');
+  hiddenElements.forEach(el => observer.observe(el));
+
+</script>
+
+</body>
+</html>
