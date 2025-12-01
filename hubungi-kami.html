@@ -34,7 +34,7 @@
       display: flex;
       align-items: center;
       background-color: #31473A;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
       width: 100%;
       padding: 10px 0;
       position: sticky;
@@ -50,7 +50,7 @@
     align-items: center;       
     gap: 78px;                     
     min-height: 100vh;
-    background-color: #2B900C;
+    background-color: white;
     padding: 40px;
 }
 
@@ -68,7 +68,7 @@
     max-width: 420px;
     padding: 50px 34px;
     border-radius: 20px;
-    background: #EFDADA;
+    background: #ffffff;
     backdrop-filter: blur(12px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
     }
@@ -101,7 +101,7 @@
     .informasi-tefa {
     width: 300px;
     padding: 20px 25px;
-    background: #EFDADA;
+    background: transparent;
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.25);
     font-size: 14px;
@@ -145,8 +145,22 @@
     }
 
     nav {
-    position: relative;
-}
+      margin-left: auto;
+    }
+
+    nav a {
+      color: #ffffff;
+      font-size: 13px;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav a:hover {
+      color: #a3b18a;
+      transform: translateY(-3px);
+    }
 
 .hamburger {
     display: none;
@@ -587,18 +601,23 @@ Jika Memiliki Kebutuhan!!</h2>
         <strong>Contact:</strong> +62-8527-7714-545<br>
         <strong>Alamat:</strong> Lab. PHTP Politeknik Negeri Jember
       </p>
+      <p>
+        <strong>Mitra Collaborator TEFA Pengelolahan Produk Kopi</strong><br>
+        • TEFA UHT<br>
+        • TEFA Bakery dan Coffee
+      </p>
     </div>
 
     <div class="footer-nav">
       <div>
         <strong>About Us</strong>
-        <a href="profil.html">Profil</a>
-        <a href="keunggulan.html">Keunggulan</a>
-        <a href="profil.html#StrukturAnggota">Struktur Keanggotaan</a>
+        <a href="/profil.html">Profil</a>
+        <a href="/keunggulan.html">Keunggulan</a>
+        <a href="/profil.html#StrukturAnggota">Struktur Keanggotaan</a>
       </div>
       <div>
         <strong>Support</strong>
-        <a href="dokumentasi.html">Dokumentasi</a>
+        <a href="/dokumentasi.html">Dokumentasi</a>
       </div>
     </div>
 
